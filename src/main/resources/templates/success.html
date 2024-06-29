@@ -1,0 +1,44 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Registration Success</title>-->
+<!--</head>-->
+<!--<body>-->
+<!--<h2>Registration Successful</h2>-->
+<!--<p>Your registration was successful.</p>-->
+<!--</br></br>-->
+<!--<h3>Your profile</h3>-->
+<!--</br>-->
+<!--<h3>Search your profile.</h3>-->
+<!--<form action="#" th:action="@{/profile}" method="get">-->
+<!--    <label>Enter User ID: <input type="text" name="userId" /></label><br/>-->
+<!--    <input type="submit" value="Search"/>-->
+<!--</form>-->
+
+<!--</body>-->
+<!--</html>-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>Registration Success</title>
+</head>
+<body>
+
+<div class="container">
+    <h2>Registration Successful</h2>
+    <p>Your registration was successful.</p>
+
+    <h3>Your profile</h3>
+
+    <h3>Search your profile.</h3>
+    <form action="#" th:action="@{/profile}" method="get">
+        <label>Enter User ID: <input type="text" name="userId"></label><br>
+        <input type="submit" value="Search">
+    </form>
+</div>
+
+</body>
+</html>

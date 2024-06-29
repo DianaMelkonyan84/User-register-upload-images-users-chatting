@@ -1,0 +1,107 @@
+
+<!--&lt;!&ndash;<!DOCTYPE html>&ndash;&gt;-->
+<!--&lt;!&ndash;<html lang="en" xmlns:th="http://www.thymeleaf.org">&ndash;&gt;-->
+<!--&lt;!&ndash;<head>&ndash;&gt;-->
+<!--&lt;!&ndash;    <meta charset="UTF-8">&ndash;&gt;-->
+<!--&lt;!&ndash;    <link rel="stylesheet" href="/css/style.css">&ndash;&gt;-->
+<!--&lt;!&ndash;    <title>User Profile</title>&ndash;&gt;-->
+<!--&lt;!&ndash;</head>&ndash;&gt;-->
+<!--&lt;!&ndash;<body>&ndash;&gt;-->
+
+<!--&lt;!&ndash;<div>&ndash;&gt;-->
+<!--&lt;!&ndash;    <h3>User Information</h3>&ndash;&gt;-->
+<!--&lt;!&ndash;    <p>Username: <span th:text="${user.username}"></span></p>&ndash;&gt;-->
+<!--&lt;!&ndash;    <p>Email: <span th:text="${user.email}"></span></p>&ndash;&gt;-->
+
+<!--&lt;!&ndash;   <p>User Pictures<span th:text="${user.pictures}"></span> </p>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;</div>&ndash;&gt;-->
+<!--&lt;!&ndash;    <h3>Upload New Picture</h3>&ndash;&gt;-->
+
+<!--&lt;!&ndash;    <form th:action="@{'/upload/' + ${user.id}}" method="post" enctype="multipart/form-data">&ndash;&gt;-->
+<!--&lt;!&ndash;        <input type="file" id="file" name="file" accept="image/*"><br><br>&ndash;&gt;-->
+<!--&lt;!&ndash;        <label>Main Picture: <input type="checkbox" name="mainPicture"/></label><br><br>&ndash;&gt;-->
+<!--&lt;!&ndash;        <button type="submit">Upload</button>&ndash;&gt;-->
+<!--&lt;!&ndash;    </form>&ndash;&gt;-->
+<!--&lt;!&ndash;</div>&ndash;&gt;-->
+<!--&lt;!&ndash;<h3>User Pictures</h3>&ndash;&gt;-->
+<!--&lt;!&ndash;<div th:each="picture : ${pictures}">&ndash;&gt;-->
+<!--&lt;!&ndash;    <img th:src="@{'/picture/' + ${picture.id}}" style="max-width: 200px; max-height: 200px;"/><br/>&ndash;&gt;-->
+
+<!--&lt;!&ndash;    <form th:action="@{'/deletePicture/' + ${user.id} + '/' + ${picture.id}}" method="post">&ndash;&gt;-->
+<!--&lt;!&ndash;        <button type="submit" onclick="return confirm('Are you sure you want to delete this picture?');" th:if="${!picture.mainPicture}">Delete</button>&ndash;&gt;-->
+<!--&lt;!&ndash;    </form>&ndash;&gt;-->
+<!--&lt;!&ndash;    <br/>&ndash;&gt;-->
+<!--&lt;!&ndash;</div>&ndash;&gt;-->
+<!--&lt;!&ndash;</div>&ndash;&gt;-->
+
+<!--&lt;!&ndash;</body>&ndash;&gt;-->
+<!--&lt;!&ndash;</html>&ndash;&gt;-->
+<!--<!DOCTYPE html>-->
+<!--<html lang="en" xmlns:th="http://www.thymeleaf.org">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <link rel="stylesheet" href="/css/style.css">-->
+<!--    <title>User Profile</title>-->
+<!--</head>-->
+<!--<body>-->
+
+<!--<div class="container">-->
+<!--    <h3>User Information</h3>-->
+<!--    <p>Username: <span th:text="${user.username}"></span></p>-->
+<!--    <p>Email: <span th:text="${user.email}"></span></p>-->
+<!--    <p>User Pictures<span th:text="${user.pictures}"></span> </p>-->
+<!--    <h3>Upload New Picture</h3>-->
+
+<!--    <form th:action="@{'/upload/' + ${user.id}}" method="post" enctype="multipart/form-data">-->
+<!--        <input type="file" id="file" name="file" accept="image/*"><br><br>-->
+<!--        <label>Main Picture: <input type="checkbox" name="mainPicture"/></label><br><br>-->
+<!--        <button type="submit">Upload</button>-->
+<!--    </form>-->
+
+<!--    <div class="picture-container">-->
+<!--        <h3>User Pictures</h3>-->
+<!--        <div th:each="picture : ${pictures}">-->
+<!--            <img th:src="@{'/picture/' + ${picture.id}}" alt="User Picture"/>-->
+<!--            <form th:action="@{'/deletePicture/' + ${user.id} + '/' + ${picture.id}}" method="post">-->
+<!--                <button type="submit" onclick="return confirm('Are you sure you want to delete this picture?');" th:if="${!picture.mainPicture}">Delete</button>-->
+<!--            </form>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
+
+<!--</body>-->
+<!--</html>-->
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>User Profile</title>
+</head>
+<body>
+
+<div class="container">
+    <h3>User Information</h3>
+    <p>Username: <span th:text="${user.username}"></span></p>
+    <p>Email: <span th:text="${user.email}"></span></p>
+
+    <h3>Upload New Picture</h3>
+    <form th:action="@{'/upload/' + ${user.id}}" method="post" enctype="multipart/form-data">
+        <input type="file" id="file" name="file" accept="image/*"><br><br>
+        <label>Main Picture: <input type="checkbox" name="mainPicture"/></label><br><br>
+        <button type="submit">Upload</button>
+    </form>
+
+    <div class="picture-container">
+        <h3>User Pictures</h3>
+        <div th:each="picture : ${pictures}">
+            <img th:src="@{'/images/' + ${picture.id}}" alt="User Picture"/>
+            <form th:action="@{'/deletePicture/' + ${user.id} + '/' + ${picture.id}}" method="post">
+                <button type="submit" onclick="return confirm('Are you sure you want to delete this picture?');" th:if="${!picture.mainPicture}">Delete</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

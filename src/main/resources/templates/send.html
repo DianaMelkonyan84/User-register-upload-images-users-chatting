@@ -1,0 +1,21 @@
+
+
+<form action="#" th:action="@{/send}" method="post">
+    <table>
+        <tr>
+            <th><label for="senderId">Sender ID:</label></th>
+            <td><input type="number" id="senderId" name="senderId" required></td>
+        </tr>
+        <tr>
+            <th><label for="receivedId">Received ID:</label></th>
+            <td><input type="number" id="receivedId" name="receivedId" required></td>
+        </tr>
+        <tr>
+            <th><label for="content">Message Content:</label></th>
+            <td><textarea id="content" name="content" rows="4" required></textarea></td>
+        </tr>
+    </table>
+    <br>
+    <button type="submit">Send Message</button>
+</form>
+
